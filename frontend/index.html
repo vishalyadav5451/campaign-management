@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Campaign Management System</title>
+</head>
+<body>
+  <h1>Campaign Management System</h1>
+
+  <h2>Create Campaign</h2>
+  <input id="name" placeholder="Campaign Name" />
+  <input id="total" type="number" placeholder="Total Coupons" />
+  <input id="startTime" type="datetime-local" />
+  <button onclick="createCampaign()">Create Campaign</button>
+  <p id="createResult"></p>
+
+  <hr>
+
+  <h2>Claim Coupon</h2>
+  <input id="campaignId" placeholder="Enter Campaign ID" />
+  <button onclick="claimCoupon()">Claim Coupon</button>
+  <p id="claimResult"></p>
+
+  <!-- Link to script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
