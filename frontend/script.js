@@ -45,3 +45,29 @@ async function claimCoupon() {
     document.getElementById('claimResult').textContent = '❌ Failed to claim coupon';
   }
 }
+
+async function viewCampaign() {
+  const id = document.getElementById('viewCampaignId').value;
+
+  const response = await fetch(`${API}/campaigns/${id}`);
+  const data = await response.json();
+
+  const output = document.getElementById('campaignDetails');
+  output.innerHTML = ''; // Clear previous
+
+  if (data.error) {
+    output.innerHTML = `<p style="color:red;">❌ ${data.error}</p>`;
+    return;
+  }
+
+  const issuedList = data.issued.map((code, index) => `<li>${index + 1}. ${code}</li>`).join('');
+
+  output.innerHTML = `
+    <p><strong>Campaign Name:</strong> ${data.name}</p>
+    <p><strong>Total Coupons:</strong> ${data.totalCoupons}</p>
+    <p><strong>Issued Coupons:</strong> ${data.issuedCount}</p>
+    <p><strong>Start Time:</strong> ${new Date(data.startTime).toLocaleString()}</p>
+    <p><strong>Coupons Issued:</strong></p>
+    <ul>${issuedList}</ul>
+  `;
+}

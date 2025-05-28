@@ -3,6 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <title>Campaign Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    input, button {
+      padding: 6px;
+      margin: 4px 0;
+      display: block;
+    }
+    button {
+      cursor: pointer;
+    }
+    h2 {
+      margin-top: 2rem;
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    hr {
+      margin: 2rem 0;
+    }
+  </style>
 </head>
 <body>
   <h1>Campaign Management System</h1>
@@ -20,6 +44,13 @@
   <input id="campaignId" placeholder="Enter Campaign ID" />
   <button onclick="claimCoupon()">Claim Coupon</button>
   <p id="claimResult"></p>
+
+  <hr>
+
+  <h2>📋 View Campaign Details</h2>
+  <input id="viewCampaignId" placeholder="Enter Campaign ID" />
+  <button onclick="viewCampaign()">View Campaign</button>
+  <div id="campaignDetails" style="margin-top: 1rem;"></div>
 
   <!-- Link to script.js -->
   <script src="script.js"></script>
