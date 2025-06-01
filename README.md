@@ -53,7 +53,9 @@ Copy the campaign ID and claim a coupon
 ## Postman Requests
 
 POST /campaigns → Create campaign
+
 POST /campaigns/:id/claim → Claim coupon
+
 GET /campaigns/:id → View campaign
 
 ## Load Test Script
@@ -72,7 +74,8 @@ node claim-test.js
 docker run -it --rm redis redis-cli -u "<your_redis_url>"
 
 # then run :
-KEYS campaign:*
+docker exec -it redis-server redis-cli
+keys *
 HGETALL campaign:<id>
 LRANGE campaign:<id>:codes 0 -1
 
